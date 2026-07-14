@@ -1,0 +1,28 @@
+### GET request to example server
+GET http://localhost:8080/api/employees
+
+### Create employee
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Julia",
+  "lastName": "Marrero",
+  "email": "julia@test.com",
+  "phoneNumber": "123-456-7890"
+}
+
+### Get employee by ID
+GET http://localhost:8080/api/employees/1
+
+
+### Delete employee
+DELETE http://localhost:8080/api/employees/2
+
+### Edit Employee - by single parameter or all parameters.
+PATCH http://localhost:8080/api/employees/3
+Content-Type: application/json
+
+{
+  "phoneNumber": ""
+}

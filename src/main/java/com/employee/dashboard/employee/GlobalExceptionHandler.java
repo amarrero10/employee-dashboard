@@ -1,4 +1,4 @@
-package com.employee.dashboard.exception;
+package com.employee.dashboard.employee.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,9 +11,9 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(EmailAlreadyExistsException.class)
+    @ExceptionHandler(com.employee.dashboard.employee.exception.EmailAlreadyExistsException.class)
     public ResponseEntity<?> handleEmailExists(
-            EmailAlreadyExistsException ex) {
+            com.employee.dashboard.employee.exception.EmailAlreadyExistsException ex) {
 
         return ResponseEntity
                 .badRequest()

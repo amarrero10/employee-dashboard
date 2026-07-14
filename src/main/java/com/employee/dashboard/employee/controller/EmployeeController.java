@@ -1,7 +1,8 @@
-package com.employee.dashboard.controller;
+package com.employee.dashboard.employee.controller;
 
-import com.employee.dashboard.entity.Employee;
-import com.employee.dashboard.service.EmployeeService;
+import com.employee.dashboard.employee.dto.EmployeeResponseDTO;
+import com.employee.dashboard.employee.entity.Employee;
+import com.employee.dashboard.employee.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class EmployeeController {
     private EmployeeService service;
 
     @GetMapping
-    public List<Employee> getEmployees() {
+    public List<EmployeeResponseDTO> getEmployees() {
         return service.allEmployees();
     }
 
@@ -46,7 +47,7 @@ public class EmployeeController {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Employee updateEmployee(
             @PathVariable Long id,
             @RequestBody Employee employee) {
