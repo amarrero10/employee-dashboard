@@ -43,6 +43,7 @@ public class Employee {
     @Column(nullable = true)
     private String phoneNumber;
 
+    @NotBlank(message = "Role is required")
     @Column(nullable = false)
     private String role;
 

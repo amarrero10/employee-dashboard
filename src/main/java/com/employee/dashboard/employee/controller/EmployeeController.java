@@ -1,5 +1,6 @@
 package com.employee.dashboard.employee.controller;
 
+import com.employee.dashboard.employee.dto.EmployeeCreateDTO;
 import com.employee.dashboard.employee.dto.EmployeeResponseDTO;
 import com.employee.dashboard.employee.entity.Employee;
 import com.employee.dashboard.employee.service.EmployeeService;
@@ -29,8 +30,8 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public Employee createEmployee(
-            @Valid @RequestBody Employee employee) {
+    public EmployeeResponseDTO createEmployee(
+            @Valid @RequestBody EmployeeCreateDTO employee) {
 
         return service.createEmployee(employee);
     }

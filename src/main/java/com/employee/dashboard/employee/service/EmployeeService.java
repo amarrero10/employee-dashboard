@@ -1,5 +1,6 @@
 package com.employee.dashboard.employee.service;
 
+import com.employee.dashboard.employee.dto.EmployeeCreateDTO;
 import com.employee.dashboard.employee.dto.EmployeeResponseDTO;
 import com.employee.dashboard.employee.entity.Employee;
 import com.employee.dashboard.employee.exception.EmailAlreadyExistsException;
@@ -29,17 +30,31 @@ public class EmployeeService {
                 .toList();
     }
 
-    public Employee createEmployee(Employee employee) {
+    public EmployeeResponseDTO createEmployee(EmployeeCreateDTO dto) {
 
-        if(repository.existsByEmail(employee.getEmail())) {
+        if (repository.existsByEmail(dto.getEmail())) {
             throw new EmailAlreadyExistsException(
                     "Email is already registered"
             );
         }
 
+        Employee employee = new Employee();
+
+        employee.setFirstName(dto.getFirstName());
+        employee.setLastName(dto.getLastName());
+        employee.setEmail(dto.getEmail());
+        employee.setPhoneNumber(dto.getPhoneNumber());
         employee.setRole("Child");
 
-        return repository.save(employee);
+        Employee savedEmployee = repository.save(employee);
+
+        return new EmployeeResponseDTO(
+                savedEmployee.getId(),
+                savedEmployee.getFirstName(),
+                savedEmployee.getLastName(),
+                savedEmployee.getEmail(),
+                savedEmployee.getRole()
+        );
     }
 
     public Employee findEmployee(Long id) {

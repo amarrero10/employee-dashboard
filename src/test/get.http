@@ -6,9 +6,9 @@ POST http://localhost:8080/api/employees
 Content-Type: application/json
 
 {
-  "firstName": "Julia",
+  "firstName": "Carson",
   "lastName": "Marrero",
-  "email": "julia@test.com",
+  "email": "Carson@test.com",
   "phoneNumber": "123-456-7890"
 }
 
@@ -17,12 +17,12 @@ GET http://localhost:8080/api/employees/1
 
 
 ### Delete employee
-DELETE http://localhost:8080/api/employees/2
+DELETE http://localhost:8080/api/employees/5
 
 ### Edit Employee - by single parameter or all parameters.
-PATCH http://localhost:8080/api/employees/3
+PATCH http://localhost:8080/api/employees/4
 Content-Type: application/json
 
 {
-  "phoneNumber": ""
+  "role": "Child"
 }
