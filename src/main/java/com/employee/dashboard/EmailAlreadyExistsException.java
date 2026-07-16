@@ -1,4 +1,4 @@
-package com.employee.dashboard.employee.exception;
+package com.employee.dashboard;
 
 public class EmailAlreadyExistsException
         extends RuntimeException {

@@ -3,7 +3,7 @@ package com.employee.dashboard.employee.service;
 import com.employee.dashboard.employee.dto.EmployeeCreateDTO;
 import com.employee.dashboard.employee.dto.EmployeeResponseDTO;
 import com.employee.dashboard.employee.entity.Employee;
-import com.employee.dashboard.employee.exception.EmailAlreadyExistsException;
+import com.employee.dashboard.EmailAlreadyExistsException;
 import com.employee.dashboard.employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

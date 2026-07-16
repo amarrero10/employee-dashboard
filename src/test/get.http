@@ -6,9 +6,9 @@ POST http://localhost:8080/api/employees
 Content-Type: application/json
 
 {
-  "firstName": "Carson",
+  "firstName": "June",
   "lastName": "Marrero",
-  "email": "Carson@test.com",
+  "email": "june@test.com",
   "phoneNumber": "123-456-7890"
 }
 
