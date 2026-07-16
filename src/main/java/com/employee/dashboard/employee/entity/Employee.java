@@ -1,20 +1,35 @@
 package com.employee.dashboard.employee.entity;
 
+import com.employee.dashboard.manager.entity.Manager;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Data
 @Table(name = "employees")
 public class Employee {
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_manager",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "manager_id")
+    )
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<Manager> managers = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,14 +66,15 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName,
-                    String lastName,
-                    String email) {
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+//    public Employee(String firstName,
+//                    String lastName,
+//                    String email) {
+//
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//    }
 
     // getters and setters
 }

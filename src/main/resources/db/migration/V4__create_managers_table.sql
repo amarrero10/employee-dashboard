@@ -7,7 +7,7 @@ CREATE TABLE managers (
 
                            email VARCHAR(255) UNIQUE NOT NULL,
 
-                           phoneNumber VARCHAR(20),
+                           phone_number VARCHAR(20),
 
                            role VARCHAR(20) UNIQUE NOT NULL,
 

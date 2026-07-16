@@ -1,25 +1,23 @@
 package com.employee.dashboard.manager.dto;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * Payload for PATCH updates. Every field is optional: a null value means
+ * "leave this field unchanged".
+ */
 @Data
-@AllArgsConstructor
-public class ManagerCreateDTO {
+public class ManagerUpdateDTO {
 
-    @NotBlank
     private String firstName;
 
-    @NotBlank
     private String lastName;
 
-    @Email
+    @Email(message = "Enter a valid email")
     private String email;
 
     private String phoneNumber;
 
     private String role;
-
 }

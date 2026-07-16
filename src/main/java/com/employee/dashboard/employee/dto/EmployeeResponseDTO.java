@@ -1,7 +1,10 @@
 package com.employee.dashboard.employee.dto;
 
+import com.employee.dashboard.manager.dto.ManagerResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,5 +19,7 @@ public class EmployeeResponseDTO {
     private String email;
 
     private String role;
+
+    private List<ManagerResponseDTO> managers;
 
 }
